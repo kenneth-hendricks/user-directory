@@ -1,15 +1,33 @@
 import React from 'react';
 import  { connect } from 'react-redux';
 
-const SearchBar = () => (
-  <nav className="navbar navbar-light bg-light">
+const SearchBar = ({ updateSearchTerm }) => {
+  let input;
+  return (
+    <nav className="navbar navbar-light bg-light">
     <div className="container">
       <a className="navbar-brand" href="#">UserDirectory</a>
       <form className="form-inline">
-        <input className="form-control" type="search" placeholder="Search" aria-label="Search" />
+        <input
+          className="form-control"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+          ref={node => input = node}
+          onChange={() => updateSearchTerm(input.value)}/>
       </form>
     </div>
   </nav>
-);
+  );
+};
 
-export default SearchBar;
+const mapDispatchToProps = (dispatch) => ({
+  updateSearchTerm: (searchTerm) => {
+    dispatch({
+      type: "UPDATE_SEARCH_TERM",
+      searchTerm: searchTerm,
+    });
+  }
+});
+
+export default connect(null, mapDispatchToProps) (SearchBar);
