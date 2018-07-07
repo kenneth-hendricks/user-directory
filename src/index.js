@@ -2,11 +2,12 @@ import React from 'react';
 import { render } from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
+import rootReducer from './reducers';
 import UserData from './UserData';
 import App from './App';
 
 const store = createStore(
-  state => state,
+  rootReducer,
   UserData,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
