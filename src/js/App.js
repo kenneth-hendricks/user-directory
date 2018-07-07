@@ -8,18 +8,34 @@ class App extends React.Component {
     const { loadNewUsers } = this.props;
     loadNewUsers();
   }
-
   render() {
+    const { users } = this.props;
+    const hasUsers = users.length;
+
+    let content;
+    if (hasUsers) {
+      content = (<UserGrid users={users} />);
+    } else {
+      content = 'No users';
+    }
     return (
       <div id="app">
         <div className="container">
           <SearchBar />
-          <UserGrid />
+          { content }
         </div>
       </div>
     );
   }
 }
+
+const filterUsers = (users, searchTerm) => {
+  return users.filter((user) => {
+    let userName = user.name.first + " " + user.name.last;
+    let lowerCaseSearchTerm = searchTerm.toLowerCase(); // Will make search case insensitive.
+    return userName.includes(lowerCaseSearchTerm);
+  });
+};
 
 const mapDispatchToProps = (dispatch) => ({
   loadNewUsers: () => {
@@ -28,8 +44,13 @@ const mapDispatchToProps = (dispatch) => ({
       .then((response) => dispatch({
         type: "UPDATE_USERS",
         users: response.results,
-      }));
+      })
+    );
   }
 });
 
-export default connect(null, mapDispatchToProps) (App);
+const mapStateToProps = (state) => ({
+  users: filterUsers(state.users, state.searchTerm)
+})
+
+export default connect(mapStateToProps, mapDispatchToProps) (App);
