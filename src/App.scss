@@ -1,5 +1,17 @@
 @import 'bootstrap/scss/bootstrap';
 
-.user.card {
-  margin-top: 1rem;
+.user {
+  &.card {
+    margin-top: 1rem;
+    &:not(:hover) {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    }
+    &:hover {
+      box-shadow: 0 4px 8px 4px rgba(88, 135, 185, 0.25);
+    }  
+  }
+}
+
+.navbar {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
