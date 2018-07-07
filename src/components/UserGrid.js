@@ -15,7 +15,8 @@ const UserGrid = ({ users }) => (
 const filterUsers = (users, searchTerm) => {
   return users.filter((user) => {
     let userName = user.name.first + " " + user.name.last;
-    return userName.includes(searchTerm);
+    let lowerCaseSearchTerm = searchTerm.toLowerCase(); // Will make search case insensitive.
+    return userName.includes(lowerCaseSearchTerm);
   });
 };
 
