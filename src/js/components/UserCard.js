@@ -5,12 +5,12 @@ const UserCard = ({ user }) => (
   <div className="card user">
     <div className="card-body">
       <div className="row align-items-center">
-        <div class="col-3 align-self-center">
+        <div className="col-3 align-self-center">
           <img className="thumbnail" src={user.picture.thumbnail} />
         </div>
         <div className="col-9">
           <div className="card-title">{displayName(user)}</div>
-          <div class="card-subtitle text-muted">{user.email}</div>
+          <div className="card-subtitle text-muted">{user.email}</div>
         </div>
       </div>
     </div>
