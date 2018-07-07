@@ -12,8 +12,15 @@ const UserGrid = ({ users }) => (
   </div>
 );
 
+const filterUsers = (users, searchTerm) => {
+  return users.filter((user) => {
+    let userName = user.name.first + " " + user.name.last;
+    return userName.includes(searchTerm);
+  });
+};
+
 const mapStateToProps = (state) => ({
-  users: state.users
+  users: filterUsers(state.users, state.searchTerm)
 })
 
 export default connect(mapStateToProps) (UserGrid);
