@@ -13,7 +13,7 @@ const UserGrid = ({ users }) => (
 );
 
 const mapStateToProps = (state) => ({
-  users: state
+  users: state.users
 })
 
 export default connect(mapStateToProps) (UserGrid);
