@@ -12,8 +12,8 @@ class App extends React.Component {
   render() {
     return (
       <div id="app">
-        <SearchBar />
         <div className="container">
+          <SearchBar />
           <UserGrid />
         </div>
       </div>
