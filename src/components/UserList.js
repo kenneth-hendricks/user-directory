@@ -6,7 +6,7 @@ const UserList = ({ userList }) => (
   <div className="row">
     {userList.map((user, i) => (
       <div className="col-3" key={i}>
-        <UserCard user={user}></UserCard>
+        <UserCard user={user} />
       </div>
     ))}
   </div>
