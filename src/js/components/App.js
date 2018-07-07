@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import UserGrid from './components/UserGrid';
-import NoUsersMessage from './components/NoUsersMessage';
-import SearchBar from './components/SearchBar';
+import UserGrid from './UserGrid';
+import NoUsersMessage from './NoUsersMessage';
+import SearchBar from './SearchBar';
 
 class App extends React.Component {
   componentDidMount() {
