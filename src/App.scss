@@ -9,6 +9,13 @@
     &:hover {
       box-shadow: 0 4px 8px 4px rgba(88, 135, 185, 0.25);
     }  
+
+    .thumbnail {
+      border-radius: 50%;
+    }
+    .card-subtitle {
+      font-size: .9rem;
+    }
   }
 }
 
