@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import UserGrid from './components/UserGrid';
+import NoUsersMessage from './components/NoUsersMessage';
 import SearchBar from './components/SearchBar';
 
 class App extends React.Component {
@@ -16,7 +17,7 @@ class App extends React.Component {
     if (hasUsers) {
       content = (<UserGrid users={users} />);
     } else {
-      content = 'No users';
+      content = (<NoUsersMessage />);
     }
     return (
       <div id="app">
