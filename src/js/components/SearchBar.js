@@ -14,7 +14,8 @@ const SearchBar = ({ updateSearchTerm }) => {
             placeholder="Search"
             aria-label="Search"
             ref={node => input = node}
-            onChange={() => updateSearchTerm(input.value)}/>
+            onChange={(event) => updateSearchTerm(event)}
+          />
         </form>
       </div>
     </nav>
@@ -22,10 +23,10 @@ const SearchBar = ({ updateSearchTerm }) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  updateSearchTerm: (searchTerm) => {
+  updateSearchTerm: (event) => {
     dispatch({
       type: "UPDATE_SEARCH_TERM",
-      searchTerm: searchTerm,
+      searchTerm: event.target.value,
     });
   }
 });
