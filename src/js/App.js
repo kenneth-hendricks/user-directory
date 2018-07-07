@@ -23,7 +23,7 @@ class App extends React.Component {
 
 const mapDispatchToProps = (dispatch) => ({
   loadNewUsers: () => {
-    fetch('https://randomuser.me/api/?results=100&nat=au')
+    fetch('https://randomuser.me/api/?results=96&nat=au')
       .then((response) => response.json())
       .then((response) => dispatch({
         type: "UPDATE_USERS",
