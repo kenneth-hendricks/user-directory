@@ -1,7 +1,6 @@
 import React from 'react';
 import UserGrid from './components/UserGrid';
 import SearchBar from './components/SearchBar';
-import './App.css';
 
 const App = () => (
   <div id="app">

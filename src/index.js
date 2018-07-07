@@ -2,8 +2,9 @@ import React from 'react';
 import { render } from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import rootReducer from './reducers';
-import App from './App';
+import rootReducer from './js/reducers';
+import App from './js/App';
+import './css/App.css';
 
 const store = createStore(
   rootReducer,
