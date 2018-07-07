@@ -2,7 +2,9 @@ import React from 'react';
 
 const UserCard = ({ user }) => (
   <div className="card user">
-    {user.name.first} {user.name.last}
+    <div className="card-body">
+      {user.name.first} {user.name.last}
+    </div>
   </div>
 );
 
