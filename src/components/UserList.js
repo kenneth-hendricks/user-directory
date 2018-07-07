@@ -2,11 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 const UserList = ({ userList }) => (
-  <ul>
+  <div className="row">
     {userList.map((user, i) => (
-      <li key={i}>{user.name.title} {user.name.first} {user.name.last}</li>
+      <div className="col-3" key={i}>
+        <div className="card user">
+          {user.name.first} {user.name.last}
+        </div>
+      </div>
     ))}
-  </ul>
+  </div>
 );
 
 const mapStateToProps = (state) => ({
