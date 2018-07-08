@@ -1,7 +1,9 @@
 import React from 'react';
 
 const Loader = () => (
-  <div>Loading UserDirectory ...</div>
+  <div className="row justify-content-center">
+    <div className="loader"></div>
+  </div>
 );
 
 export default Loader;

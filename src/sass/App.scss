@@ -8,7 +8,7 @@
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     }
     &:hover {
-      box-shadow: 0 4px 8px 4px rgba(88, 135, 185, 0.25);
+      box-shadow: 0 4px 8px 4px rgba(88, 135, 185, 0.50);
     }  
 
     .thumbnail {
@@ -25,4 +25,19 @@
 
 .search-form {
   margin: 1rem 0rem;
+}
+
+.loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid rgba(88, 135, 185, 0.50);
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 1.25s linear infinite;
+  margin-top: 12rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
