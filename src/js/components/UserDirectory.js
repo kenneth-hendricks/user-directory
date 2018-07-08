@@ -4,23 +4,18 @@ import UserGrid from './UserGrid';
 import NoUsersMessage from './NoUsersMessage';
 import SearchBar from './SearchBar';
 
-const UserDirectory = ({ users }) => {
-  const hasUsers = users.length;
-
-  let content;
-  if (hasUsers) {
-    content = (<UserGrid users={users} />);
-  } else {
-    content = (<NoUsersMessage />);
-  }
-
-  return (
-    <div className="user-directory">
-      <SearchBar />
-      { content }
-    </div>
-  );
-}
+const UserDirectory = ({ users }) => ( 
+  <div className="user-directory">
+    <SearchBar />
+    {users.length ?
+      (
+        <UserGrid users={users} />
+      ) : (
+        <NoUsersMessage />
+      )
+    }
+  </div>
+);
 
 const filterUsers = (users, searchTerm) => {
   return users.filter((user) => {
