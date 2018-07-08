@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import UserDirectory from './UserDirectory';
+import Loader from './Loader';
 
 class App extends React.Component {
   componentDidMount() {
@@ -13,7 +14,7 @@ class App extends React.Component {
       <div id="app" className="container">
         {loading ?
           (
-            <div>Loading UserDirectory ...</div>
+            <Loader />
           ) :
           (
             <UserDirectory />
