@@ -8,13 +8,25 @@ class App extends React.Component {
     loadNewUsers();
   }
   render() {
+    let {loading} = this.props;
     return (
       <div id="app" className="container">
-          <UserDirectory />
+        {loading ?
+          (
+            <div>Loading UserDirectory ...</div>
+          ) :
+          (
+            <UserDirectory />
+          )
+        }
       </div>
     );
   }
 }
+
+const mapStateToProps = (state) => ({
+  loading: state.usersLoading,
+});
 
 const mapDispatchToProps = (dispatch) => ({
   loadNewUsers: () => {
@@ -28,4 +40,4 @@ const mapDispatchToProps = (dispatch) => ({
   }
 });
 
-export default connect(null, mapDispatchToProps) (App);
+export default connect(mapStateToProps, mapDispatchToProps) (App);
