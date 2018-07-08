@@ -35,8 +35,9 @@ const mapDispatchToProps = (dispatch) => ({
       .then((response) => dispatch({
         type: "UPDATE_USERS",
         users: response.results,
-      })
-    );
+      })).then(() => dispatch({
+        type: "USERS_LOADED",
+      }));
   }
 });
 
