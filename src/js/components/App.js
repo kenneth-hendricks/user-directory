@@ -1,6 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Route, withRouter } from 'react-router-dom'
 import UserDirectory from './UserDirectory';
+import User from './User';
+
 import Loader from './Loader';
 
 class App extends React.Component {
@@ -16,8 +19,11 @@ class App extends React.Component {
           (
             <Loader />
           ) :
-          (
-            <UserDirectory />
+          ( 
+            <div>
+              <Route exact path="/" component={UserDirectory} />
+              <Route path="/user" component={User} />
+            </div>
           )
         }
       </div>
@@ -42,4 +48,4 @@ const mapDispatchToProps = (dispatch) => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps) (App);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps) (App));
