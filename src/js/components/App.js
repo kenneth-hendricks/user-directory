@@ -1,8 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import UserGrid from './UserGrid';
-import NoUsersMessage from './NoUsersMessage';
-import SearchBar from './SearchBar';
+import UserDirectory from './UserDirectory';
 
 class App extends React.Component {
   componentDidMount() {
@@ -10,33 +8,13 @@ class App extends React.Component {
     loadNewUsers();
   }
   render() {
-    const { users } = this.props;
-    const hasUsers = users.length;
-
-    let content;
-    if (hasUsers) {
-      content = (<UserGrid users={users} />);
-    } else {
-      content = (<NoUsersMessage />);
-    }
     return (
-      <div id="app">
-        <div className="container">
-          <SearchBar />
-          { content }
-        </div>
+      <div id="app" className="container">
+          <UserDirectory />
       </div>
     );
   }
 }
-
-const filterUsers = (users, searchTerm) => {
-  return users.filter((user) => {
-    let userName = user.name.first + " " + user.name.last;
-    let lowerCaseSearchTerm = searchTerm.toLowerCase(); // Will make search case insensitive.
-    return userName.includes(lowerCaseSearchTerm);
-  });
-};
 
 const mapDispatchToProps = (dispatch) => ({
   loadNewUsers: () => {
@@ -50,8 +28,4 @@ const mapDispatchToProps = (dispatch) => ({
   }
 });
 
-const mapStateToProps = (state) => ({
-  users: filterUsers(state.users, state.searchTerm)
-})
-
-export default connect(mapStateToProps, mapDispatchToProps) (App);
+export default connect(null, mapDispatchToProps) (App);
